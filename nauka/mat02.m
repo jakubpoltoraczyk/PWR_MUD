@@ -1,0 +1,25 @@
+clear all;
+close all;
+figure;
+hold on;
+grid on;
+TzewN = -20;
+TwewN = 20;
+TpN = 10;
+QgN = 5000;
+a = 0.25;
+Kcw = QgN/(TwewN*(a+1)-TzewN-a*TpN);
+Kcwp = a*Kcw;
+Kcp = Kcwp*(TwewN-TpN)/(TpN-TzewN);
+Qg = [0:50:QgN];
+Tzew = [0:-4:TzewN];
+xlabel('Qg[W]');
+ylabel('Twew[C]');
+tzew_names = ['0C  ';'-4C ';'-8C ';'-12C';'-16C';'-20C'];
+for i=1:size(Tzew,2);
+    Tp = (Kcwp*Qg+Tzew(i)*(Kcp*Kcwp+Kcw*Kcwp+Kcp*Kcw))/(Kcw*Kcwp+Kcw*Kcp+Kcwp*Kcp);
+    Twew = (Qg-Kcp*(Tp-Tzew(i)))/(Kcw)+Tzew(i);
+    plot(Qg,Twew);
+    legend_names(i,:) = tzew_names(i,:);
+end
+legend(legend_names);
