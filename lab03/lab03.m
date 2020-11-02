@@ -2,7 +2,6 @@ clear all;
 close all;
 % Dane stałe
 t = 0:0.20:20;
-opis = ['Xw ';'Xs1';'Xs2';'Xs ';'X  '];
 L1 = -1/4;
 L2 = -3;
 % Dane dla punktu nr 1
@@ -27,7 +26,6 @@ plot(t,X,'k');
 title('Rozwiazanie dla punktu nr 1');
 xlabel('t[s]');
 ylabel('X');
-legend(opis);
 % Dane dla punktu nr 2
 A1 = 0;
 A2 = 0;
@@ -47,7 +45,6 @@ plot(t,X,'k');
 title('Rozwiazanie dla punktu nr 2');
 xlabel('t[s]');
 ylabel('X');
-legend(opis);
 % Dane dla punktu nr 3
 figure(3);
 hold on;
@@ -70,7 +67,6 @@ plot(t,X,'k');
 title('Rozwiazanie dla punktu nr 3');
 xlabel('t[s]');
 ylabel('X');
-legend(opis);
 % Dane dla punktu nr 4
 figure(4);
 hold on;
@@ -95,4 +91,3 @@ plot(t,X,'k');
 title('Rozwiazanie dla punktu nr 4');
 xlabel('t[s]');
 ylabel('X');
-legend(opis);
