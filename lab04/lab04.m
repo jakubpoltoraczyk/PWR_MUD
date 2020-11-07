@@ -1,6 +1,4 @@
 clear all;
-%close all; % tego nie robić!
-% przełączać się na włączone już ploty z lab03
 %Dane stałe
 opis = ['Xw  ';'Xs1 ';'Xs2 ';'Xs  ';'X   ';'Xsim'];
 model = 'sim04';
@@ -17,6 +15,7 @@ x10 = 0;
 u0 = 1;
 x0 = 2;
 %Wykres dla punktu nr 1
+set_param('sim04/Manual Switch','sw','1')
 sim(model,20);
 figure(1);
 hold on;
@@ -50,5 +49,17 @@ xlabel(xlab);
 ylabel(ylab);
 title('Rozwiazanie dla punktu nr 3');
 legend(opis);
-
+%Dane dla punktu nr 4
+u0 = 0;
+%Wykres dla punktu nr 4
+set_param('sim04/Manual Switch','sw','0')
+sim(model,20);
+figure(4);
+hold on;
+grid on;
+plot(ans.tout,ans.simout,kolor);
+xlabel(xlab);
+ylabel(ylab);
+title('Rozwiazanie dla punktu nr 4');
+legend(opis);
 
